@@ -7,14 +7,16 @@ A small Spring Boot application for sending emails from a gmail account via a js
 
 ### Running
 * From the root directory run
-    ./gradlew bootRun
+    `./gradlew bootRun`
 
 * Using Postman, post json to
 
-    http://localhost:8080/send
+    `http://localhost:8080/send`
 
+    ```
     {
         "to": "destination",
         "subject": "Mail Sender test",
         "body": "Hello, world!"
     }
+    ```
