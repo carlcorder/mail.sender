@@ -22,3 +22,5 @@ A small Spring Boot application for sending emails from a gmail account via a js
         "body": "Hello, world!"
     }
     ```
+* Integration tests with
+    `./gradlew test`
