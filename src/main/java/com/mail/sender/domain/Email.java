@@ -1,7 +1,6 @@
 package com.mail.sender.domain;
 
 import lombok.NonNull;
-import org.springframework.beans.factory.annotation.Value;
 
 @lombok.Data
 @lombok.AllArgsConstructor
@@ -13,7 +12,6 @@ public class Email {
     private String to;
 
     @NonNull
-    //@Value("{spring.mail.username}") --> this is always null
     private String from;
 
     @NonNull
