@@ -13,7 +13,7 @@ A small Spring Boot application for sending emails from a gmail account via a js
 
     `http://localhost:8080/send`
 
-    ```
+    ```json
     {
         "to": "destination",
         "subject": "Mail Sender test",
