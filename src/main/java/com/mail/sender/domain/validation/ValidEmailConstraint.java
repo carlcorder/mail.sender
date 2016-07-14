@@ -1,7 +1,7 @@
 package com.mail.sender.domain.validation;
 
 import com.mail.sender.domain.Email;
-import org.apache.commons.validator.EmailValidator;
+import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.util.StringUtils;
 
 import javax.validation.ConstraintValidator;

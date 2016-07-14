@@ -15,7 +15,7 @@ import static java.lang.annotation.ElementType.*;
 @Constraint(validatedBy = ValidEmailConstraint.class)
 public @interface ValidEmail {
 
-    String message() default "failed to send : invalid email";
+    String message() default "invalid email";
 
     Class<?>[] groups() default { };
 
