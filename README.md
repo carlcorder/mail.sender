@@ -1,5 +1,5 @@
 # Mail Sender
-A small Spring Boot application for sending emails from a gmail account via a simple thymeleaf ui.
+A small Spring Boot application for sending emails from a Gmail account via a simple Thymeleaf ui.
 
 ### Requirements
 * Java 8
