@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <title>Gmail Sender Results</title>
+</head>
+<body>
+    <h1>Successfully sent message:</h1>
+    <p th:text="${email.to}" />
+    <p th:text="${email.subject}" />
+    <a href="/send">Send Another Email</a>
+</body>
+</html>

@@ -24,7 +24,7 @@ public class MailSenderService {
         this.javaMailSender = javaMailSender;
     }
 
-    public Email send(Email email) {
+    public void send(Email email) {
         email.setFrom(userName);
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper messageHelper;
@@ -37,12 +37,9 @@ public class MailSenderService {
         } catch (MessagingException e) {
             logger.info("failed to send message: " + email.toString());
             e.printStackTrace();
-            return null;
         }
-
         javaMailSender.send(message);
         logger.info("sending message: " + email.toString());
-        return email;
     }
 
 }

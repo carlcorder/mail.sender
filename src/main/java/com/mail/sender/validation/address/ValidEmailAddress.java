@@ -1,4 +1,4 @@
-package com.mail.sender.domain.validation;
+package com.mail.sender.validation.address;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -9,13 +9,13 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.*;
 
-@Target({TYPE})
+@Target({METHOD, FIELD, ANNOTATION_TYPE,TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Constraint(validatedBy = ValidEmailConstraint.class)
-public @interface ValidEmail {
+@Constraint(validatedBy = ValidEmailAddressConstraint.class)
+public @interface ValidEmailAddress {
 
-    String message() default "invalid email";
+    String message() default "Invalid email address.";
 
     Class<?>[] groups() default { };
 

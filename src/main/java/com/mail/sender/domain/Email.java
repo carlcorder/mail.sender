@@ -1,18 +1,20 @@
 package com.mail.sender.domain;
 
-import com.mail.sender.domain.validation.ValidEmail;
+import com.mail.sender.validation.address.ValidEmailAddress;
+import com.mail.sender.validation.subject.ValidEmailSubject;
 
-@lombok.Data
-@lombok.AllArgsConstructor
+@lombok.Getter
+@lombok.Setter
+@lombok.ToString
 @lombok.NoArgsConstructor
-@lombok.Builder
-@ValidEmail
 public class Email {
 
+    @ValidEmailAddress
     private String to;
 
     private String from;
 
+    @ValidEmailSubject
     private String subject;
 
     private String body;

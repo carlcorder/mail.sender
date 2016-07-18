@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <title>Gmail Sender</title>
+</head>
+<body>
+<h1>Gmail Sender</h1>
+<form action="#" th:action="@{/send}" th:object="${email}" method="post">
+    <table>
+        <tr>
+            <td>To:</td>
+            <td><input type="text" th:field="*{to}" /></td>
+            <td th:if="${#fields.hasErrors('to')}" th:errors="*{to}">To Error</td>
+        </tr>
+        <tr>
+            <td>Subject:</td>
+            <td><input type="text" th:field="*{subject}" /></td>
+            <td th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}">Subject Error</td>
+        </tr>
+        <tr>
+            <td>Message:</td>
+            <td><input type="text" th:field="*{body}" /></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" value="Submit">Submit</button>
+                <button type="reset" value="Reset">Reset</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
