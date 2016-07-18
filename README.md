@@ -1,5 +1,5 @@
 # Mail Sender
-A small Spring Boot application for sending emails from a gmail account via a json post.
+A small Spring Boot application for sending emails from a gmail account via a simple thymeleaf ui.
 
 ### Requirements
 * Java 8
@@ -11,16 +11,7 @@ A small Spring Boot application for sending emails from a gmail account via a js
 * From the root directory run
     `./gradlew bootRun`
 
-* Using Postman, post json to
+* A valid email address and subject are required when sending
 
-    `http://localhost:8080/send`
-
-    ```json
-    {
-        "to": "destination",
-        "subject": "Mail Sender test",
-        "body": "Hello, world!"
-    }
-    ```
 * Integration tests with
     `./gradlew test`
