@@ -1,8 +1,8 @@
 spring:
   mail:
     host: 'smpt.gmail.com'
-    username: 'your_gmail_address'
-    password: 'gmail_app_password'
+    username: 'corder.carl@gmail.com'
+    password: 'yreqeflmfpblxpcz'
   properties:
     mail:
       smtp:
@@ -16,4 +16,4 @@ spring:
 mail:
   test:
     username:
-      to: 'test_destination@example.com'
+      to: 'carlcorder@hotmail.com'
