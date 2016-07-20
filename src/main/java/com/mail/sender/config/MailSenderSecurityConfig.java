@@ -18,8 +18,10 @@ public class MailSenderSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+            .csrf()
+                .disable()
             .authorizeRequests()
-                .antMatchers().permitAll()
+                .antMatchers("/send/test").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
