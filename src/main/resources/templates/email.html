@@ -7,6 +7,10 @@
 </head>
 <body>
 <h1>Gmail Sender</h1>
+<h3 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out" />
+</form>
 <form action="#" th:action="@{/send}" th:object="${email}" method="post">
     <table>
         <tr>

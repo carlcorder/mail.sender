@@ -10,11 +10,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.validation.Valid;
 
 @Controller
-public class MailSenderController {
+public class MailSenderController extends WebMvcConfigurerAdapter {
 
     @Autowired
     private MailSenderService mailSenderService;
@@ -22,7 +24,15 @@ public class MailSenderController {
     @Autowired
     private Environment env;
 
-    @RequestMapping(value = "/send", method = RequestMethod.GET)
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/send").setViewName("send");
+        registry.addViewController("/").setViewName("send");
+        registry.addViewController("/results").setViewName("results");
+        registry.addViewController("/login").setViewName("login");
+    }
+
+    @RequestMapping(value = {"", "/", "/send"}, method = RequestMethod.GET)
     public String emailForm(Model model) {
         model.addAttribute("email", new Email());
         model.addAttribute("userName", env.getProperty("spring.mail.username"));
