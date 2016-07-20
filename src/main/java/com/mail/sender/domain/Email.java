@@ -2,11 +2,12 @@ package com.mail.sender.domain;
 
 import com.mail.sender.validation.address.ValidEmailAddress;
 import com.mail.sender.validation.subject.ValidEmailSubject;
+import lombok.*;
 
-@lombok.Getter
-@lombok.Setter
-@lombok.ToString
-@lombok.NoArgsConstructor
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Email {
 
     @ValidEmailAddress

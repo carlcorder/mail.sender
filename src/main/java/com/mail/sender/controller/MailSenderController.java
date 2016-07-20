@@ -3,6 +3,7 @@ package com.mail.sender.controller;
 import com.mail.sender.domain.Email;
 import com.mail.sender.service.MailSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,9 +19,13 @@ public class MailSenderController {
     @Autowired
     private MailSenderService mailSenderService;
 
+    @Autowired
+    private Environment env;
+
     @RequestMapping(value = "/send", method = RequestMethod.GET)
     public String emailForm(Model model) {
         model.addAttribute("email", new Email());
+        model.addAttribute("userName", env.getProperty("spring.mail.username"));
         return "email";
     }
 

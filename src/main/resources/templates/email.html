@@ -10,6 +10,10 @@
 <form action="#" th:action="@{/send}" th:object="${email}" method="post">
     <table>
         <tr>
+            <td>From:</td>
+            <td><input type="text" name="from" th:value="${userName}" disabled="disabled" /></td>
+        </tr>
+        <tr>
             <td>To:</td>
             <td><input type="text" th:field="*{to}" /></td>
             <td th:if="${#fields.hasErrors('to')}" th:errors="*{to}">To Error</td>
@@ -21,7 +25,7 @@
         </tr>
         <tr>
             <td>Message:</td>
-            <td><input type="text" th:field="*{body}" /></td>
+            <td><textarea cols="50" rows="5" th:field="*{body}" /></td>
         </tr>
         <tr>
             <td>
