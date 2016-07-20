@@ -49,4 +49,10 @@ public class MailSenderController extends WebMvcConfigurerAdapter {
         return "results";
     }
 
+    @RequestMapping(value = "/send/test", method = RequestMethod.POST)
+    public String emailTest(@Valid Email email, BindingResult bindingResult) {
+
+        return "";
+    }
+
 }

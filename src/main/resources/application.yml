@@ -14,6 +14,8 @@ spring:
           ssl:
             enable: 'true'
 mail:
-  test:
-    username:
-      to: 'carlcorder@hotmail.com'
+  sender:
+    username: 'mail'
+    password: 'sender'
+    test:
+      username: 'carlcorder@hotmail.com'
