@@ -19,7 +19,9 @@ public class MailSenderSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .csrf()
-                .disable()
+                .ignoringAntMatchers("/send/test");
+
+        http
             .authorizeRequests()
                 .antMatchers("/send/test").permitAll()
                 .anyRequest().authenticated()
