@@ -23,7 +23,7 @@ public class MailSenderSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
             .authorizeRequests()
-                .antMatchers("/send/test").permitAll()
+                .antMatchers("/send/test", "/health**").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
