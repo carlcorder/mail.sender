@@ -1,8 +1,12 @@
 spring:
+  datasource:
+    url: 'jdbc:h2:file:~/test;MV_STORE=FALSE;MVCC=FALSE'
+  jpa:
+    show-sql: 'true'
   mail:
     host: 'smtp.gmail.com'
-    username: 'gmail-address'
-    password: 'gmail-app-password'
+    username: 'corder.carl@gmail.com'
+    password: 'yreqeflmfpblxpcz'
     properties:
       mail:
         smtp:
@@ -15,7 +19,7 @@ spring:
             enable: 'true'
 mail:
   sender:
-    username: 'user'
-    password: 'password'
+    username: 'mail'
+    password: 'sender'
     test:
-      username: 'test-email'
+      username: 'carlcorder@hotmail.com'

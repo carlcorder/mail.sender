@@ -19,11 +19,16 @@ public class MailSenderSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .csrf()
-                .ignoringAntMatchers("/send/test");
+                .ignoringAntMatchers("/send/test", "/h2-console/**");
+
+        // h2 database console runs inside a frame
+        http
+            .headers()
+                .frameOptions().disable();
 
         http
             .authorizeRequests()
-                .antMatchers("/send/test", "/health**").permitAll()
+                .antMatchers("/send/test", "/health**", "h2-console/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()

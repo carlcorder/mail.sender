@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.*;
 
-@Target({METHOD, FIELD, ANNOTATION_TYPE,TYPE})
+@Target({METHOD, FIELD, ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Constraint(validatedBy = ValidEmailAddressConstraint.class)

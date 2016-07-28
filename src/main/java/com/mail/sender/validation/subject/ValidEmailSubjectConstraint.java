@@ -5,7 +5,7 @@ import org.springframework.util.StringUtils;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-class ValidEmailSubjectConstraint implements ConstraintValidator<ValidEmailSubject, String> {
+public class ValidEmailSubjectConstraint implements ConstraintValidator<ValidEmailSubject, String> {
 
     @Override
     public void initialize(ValidEmailSubject constraintAnnotation) {

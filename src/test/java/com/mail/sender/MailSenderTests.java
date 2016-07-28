@@ -27,7 +27,7 @@ public class MailSenderTests {
 
     @Before
     public void setUp() {
-        email = Email.builder().to(testUserTo).from(userNameFrom)
+        email = Email.builder().toAddress(testUserTo).fromAddress(userNameFrom)
                 .subject("integration test").body("mock body text").build();
     }
 

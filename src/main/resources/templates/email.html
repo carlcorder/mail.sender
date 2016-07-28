@@ -15,12 +15,12 @@
     <table>
         <tr>
             <td>From:</td>
-            <td><input type="text" name="from" th:value="${userName}" disabled="disabled" /></td>
+            <td><input type="text" name="fromAddress" th:value="${userName}" disabled="disabled" /></td>
         </tr>
         <tr>
             <td>To:</td>
-            <td><input type="text" th:field="*{to}" /></td>
-            <td th:if="${#fields.hasErrors('to')}" th:errors="*{to}">To Error</td>
+            <td><input type="text" th:field="*{toAddress}" /></td>
+            <td th:if="${#fields.hasErrors('toAddress')}" th:errors="*{toAddress}">To Error</td>
         </tr>
         <tr>
             <td>Subject:</td>

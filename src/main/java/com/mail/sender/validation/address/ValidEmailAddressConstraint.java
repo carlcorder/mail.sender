@@ -5,7 +5,7 @@ import org.apache.commons.validator.routines.EmailValidator;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-class ValidEmailAddressConstraint implements ConstraintValidator<ValidEmailAddress, String> {
+public class ValidEmailAddressConstraint implements ConstraintValidator<ValidEmailAddress, String> {
 
     @Override
     public void initialize(ValidEmailAddress constraintAnnotation) {
