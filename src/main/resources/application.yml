@@ -5,8 +5,8 @@ spring:
     show-sql: 'true'
   mail:
     host: 'smtp.gmail.com'
-    username: 'corder.carl@gmail.com'
-    password: 'yreqeflmfpblxpcz'
+    username: 'gmail-address'
+    password: 'gmail-app-password'
     properties:
       mail:
         smtp:
@@ -19,7 +19,7 @@ spring:
             enable: 'true'
 mail:
   sender:
-    username: 'mail'
-    password: 'sender'
+    username: 'user'
+    password: 'password'
     test:
-      username: 'carlcorder@hotmail.com'
+      username: 'test-email'
