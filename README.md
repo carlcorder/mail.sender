@@ -12,10 +12,7 @@ A small Spring Boot application for sending emails from a Gmail account via a si
 ### Running
 * From the root directory run`./gradlew bootRun`, then visit `localhost:8080/send` in
   your browser
-
 * A valid email address and subject are required when sending
-
 * View Email objects in H2 database by hitting `localhost:8080/h2-console` -> Connect
-  * ~/test.h2.db & ~/test.lock.db
-
+  * application creates ~/test.h2.db, ~/test.lock.db, test.trace.db
 * Integration tests with `./gradlew test`
