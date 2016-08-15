@@ -6,7 +6,7 @@
     <title>Gmail Sender Results</title>
 </head>
 <body>
-    <h1>Successfully sent message:</h1>
+    <h1 th:text="${email.status.message}" />
     <p th:text="${email.toAddress}" />
     <p th:text="${email.subject}" />
     <a href="/send">Send Another Email</a>

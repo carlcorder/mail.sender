@@ -16,5 +16,6 @@ A small Spring Boot application for sending emails from a Gmail account via a si
 * A valid email address and subject are required when sending
 
 * View Email objects in H2 database by hitting `localhost:8080/h2-console` -> Connect
+  * ~/test.h2.db & ~/test.lock.db
 
 * Integration tests with `./gradlew test`

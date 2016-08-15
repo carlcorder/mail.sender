@@ -39,6 +39,8 @@ dependencies {
 	compile('org.hibernate:hibernate-validator')
 	compile('commons-validator:commons-validator:1.4.0')
 	compile('com.h2database:h2')
+	compile('org.aspectj:aspectjrt:1.8.9')
+	compile('org.aspectj:aspectjweaver:1.8.9')
 
 	// test
 	testCompile('org.springframework.boot:spring-boot-starter-test')

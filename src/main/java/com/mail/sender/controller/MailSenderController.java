@@ -1,6 +1,7 @@
 package com.mail.sender.controller;
 
 import com.mail.sender.domain.Email;
+import com.mail.sender.enums.EmailStatus;
 import com.mail.sender.service.MailSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -44,7 +45,13 @@ public class MailSenderController extends WebMvcConfigurerAdapter {
         if(bindingResult.hasErrors()) {
             return "email";
         }
-        mailSenderService.send(email);
+        try {
+            mailSenderService.send(email);
+            mailSenderService.saveEmail(email);
+        }
+        catch(Exception ex) {
+            email.setStatus(EmailStatus.FAILURE);
+        }
         model.addAttribute("email", email);
         return "results";
     }

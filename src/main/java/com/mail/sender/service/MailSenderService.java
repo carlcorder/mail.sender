@@ -2,20 +2,20 @@ package com.mail.sender.service;
 
 import com.mail.sender.dao.EmailRepository;
 import com.mail.sender.domain.Email;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import com.mail.sender.enums.EmailStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Service
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class MailSenderService {
 
     @Value("${spring.mail.username}")
@@ -24,33 +24,27 @@ public class MailSenderService {
     @Autowired
     private EmailRepository emailRepository;
 
-    private static final Log logger = LogFactory.getLog(MailSenderService.class);
     private JavaMailSender javaMailSender;
 
     public void setJavaMailSender(JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
     }
 
-    public void send(Email email) {
+    public void send(Email email) throws MessagingException {
         email.setFromAddress(userName);
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper messageHelper;
 
-        try {
-            messageHelper = new MimeMessageHelper(message, true);
-            messageHelper.setTo(email.getToAddress());
-            messageHelper.setSubject(email.getSubject());
-            messageHelper.setText(email.getBody());
-        } catch (MessagingException e) {
-            logger.info("failed to send message: " + email.toString());
-            e.printStackTrace();
-        }
+        messageHelper = new MimeMessageHelper(message, true);
+        messageHelper.setTo(email.getToAddress());
+        messageHelper.setSubject(email.getSubject());
+        messageHelper.setText(email.getBody());
+
         javaMailSender.send(message);
-        logger.info("sending message: " + email.toString());
-        saveEmail(email);
+        email.setStatus(EmailStatus.SUCCESS);
     }
 
-    private void saveEmail(Email email) {
+    public void saveEmail(Email email) {
         email.setSentTimeStamp(LocalDateTime.now().toString());
         emailRepository.save(email);
     }
