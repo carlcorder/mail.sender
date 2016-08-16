@@ -13,8 +13,8 @@ public class MailSenderLoggingAspect {
 
     private static final Log logger = LogFactory.getLog(MailSenderLoggingAspect.class);
 
-    @Before("execution(* com.mail.sender.service.MailSenderService.saveEmail(..))")
-    public void saveAdvice(JoinPoint joinPoint) {
+    @AfterReturning("execution(* com.mail.sender.service.MailSenderService.send(..))")
+    public void sendAdvice(JoinPoint joinPoint) {
         Email email = (Email) joinPoint.getArgs()[0];
         logger.info("message successfully sent: " + email.toString());
     }

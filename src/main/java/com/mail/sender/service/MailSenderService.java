@@ -42,9 +42,10 @@ public class MailSenderService {
 
         javaMailSender.send(message);
         email.setStatus(EmailStatus.SUCCESS);
+        saveEmail(email);
     }
 
-    public void saveEmail(Email email) {
+    private void saveEmail(Email email) {
         email.setSentTimeStamp(LocalDateTime.now().toString());
         emailRepository.save(email);
     }

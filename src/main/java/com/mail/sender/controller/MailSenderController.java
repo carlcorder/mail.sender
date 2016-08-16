@@ -47,7 +47,6 @@ public class MailSenderController extends WebMvcConfigurerAdapter {
         }
         try {
             mailSenderService.send(email);
-            mailSenderService.saveEmail(email);
         }
         catch(Exception ex) {
             email.setStatus(EmailStatus.FAILURE);
